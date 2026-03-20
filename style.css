@@ -1435,33 +1435,34 @@ section {
 
 /* Найдите .mobile-menu и замените на: */
 .mobile-menu {
-    height: 100%;
-    padding: 120px 24px 40px;  /* УВЕЛИЧЕНО с 80px до 120px - больше места сверху */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        height: 100%;
+        padding: 70px 24px 40px;  /* БЫЛО 120px → СТАЛО 70px */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     
     /* Также можно увеличить отступ у крестика */
 .mobile-menu-close {
-    position: absolute;
-    top: 30px;  /* УВЕЛИЧЕНО с 20px до 30px */
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 36px;
-    color: #2C2C2C;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-}
+        position: absolute;
+        top: 16px;  /* БЫЛО 30px → СТАЛО 16px */
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 36px;
+        color: #2C2C2C;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+    }
     
     .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 60px;  /* УВЕЛИЧЕНО с 40px до 60px - больше отступ от крестика */
-}
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 30px;  /* БЫЛО 60px → СТАЛО 30px */
+    }
+
     .mobile-nav-link {
         font-size: 24px;
         font-weight: 500;
@@ -1489,7 +1490,7 @@ section {
         font-size: 16px;
     }
     
-    body.menu-open {
+        body.menu-open {
         overflow: hidden;
     }
 }
