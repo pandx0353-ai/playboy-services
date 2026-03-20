@@ -1436,7 +1436,7 @@ section {
 /* Найдите .mobile-menu и замените на: */
 .mobile-menu {
     height: 100%;
-    padding: 120px 24px 40px;  /* УВЕЛИЧЕНО с 80px до 120px - больше места сверху */
+    padding: 50px 24px 40px !important;  /* Ещё меньше */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1445,7 +1445,7 @@ section {
     /* Также можно увеличить отступ у крестика */
 .mobile-menu-close {
     position: absolute;
-    top: 30px;  /* УВЕЛИЧЕНО с 20px до 30px */
+    top: 12px !important;
     right: 20px;
     background: none;
     border: none;
@@ -1460,7 +1460,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 60px;  /* УВЕЛИЧЕНО с 40px до 60px - больше отступ от крестика */
+    margin-top: 16px !important;  /* Ещё меньше */
 }
     .mobile-nav-link {
         font-size: 24px;
