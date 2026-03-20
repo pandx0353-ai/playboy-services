@@ -715,92 +715,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// Mobile Menu Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    
-    // Открыть меню
-    function openMenu() {
-        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
-        if (mobileMenuOverlay) {
-            mobileMenuOverlay.classList.add('active');
-            mobileMenuOverlay.style.display = 'block';
-        }
-        document.body.classList.add('menu-open');
-    }
-    
-    // Закрыть меню
-    function closeMenu() {
-        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-        if (mobileMenuOverlay) {
-            mobileMenuOverlay.classList.remove('active');
-            setTimeout(() => {
-                if (!mobileMenuOverlay.classList.contains('active')) {
-                    mobileMenuOverlay.style.display = 'none';
-                }
-            }, 400);
-        }
-        document.body.classList.remove('menu-open');
-    }
-    
-    // Открытие по клику на гамбургер
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            openMenu();
-        });
-    }
-    
-    // Закрытие по клику на крестик
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeMenu();
-        });
-    }
-    
-    // Закрытие при клике на ссылку
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMenu();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                setTimeout(() => {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 400);
-            }
-        });
-    });
-    
-    // Закрытие при клике на фон
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', (e) => {
-            if (e.target === mobileMenuOverlay) {
-                closeMenu();
-            }
-        });
-    }
-    
-    // Закрытие при ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeMenu();
-        }
-    });
-    
-    // Закрытие при resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 480) {
-            closeMenu();
-        }
-    });
-});
-</script>
+/* Убедитесь что overlay виден когда активен */
+.mobile-menu-overlay {
+    display: none; /* Скрыто по умолчанию */
+}
+
+.mobile-menu-overlay.active {
+    display: block; /* Показываем когда активен */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Убедитесь что кнопка имеет правильный z-index */
+.mobile-menu-toggle {
+    z-index: 1001;
+    cursor: pointer;
+    pointer-events: auto; /* Важно! */
+}
+
+/* Убедитесь что overlay тоже кликабельный */
+.mobile-menu-overlay.active {
+    pointer-events: auto; /* Важно! */
+}
 
 </body>
 </html>
