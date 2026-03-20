@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     
     <!-- Твои стили -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="images">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,27 +43,61 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <img src="images/logo.svg" alt="Logo" class="logo-img">
-            </div>
-            
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#main" class="nav-link">Главная</a></li>
-                    <li><a href="#about" class="nav-link">О нас</a></li>
-                    <li><a href="#services" class="nav-link">Услуги</a></li>
-                    <li><a href="#team" class="nav-link">Команда</a></li>
-                    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
-                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
-                </ul>
-            </nav>
-
-            <button class="btn btn-header">Вызвать мастера</button>
+<!-- HEADER -->
+<header class="header">
+    <div class="container header-container">
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="images/logo.svg" alt="Logo" class="logo-img">
         </div>
-    </header>
+        
+        <!-- Десктопное меню -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#main" class="nav-link">Главная</a></li>
+                <li><a href="#about" class="nav-link">О нас</a></li>
+                <li><a href="#services" class="nav-link">Услуги</a></li>
+                <li><a href="#team" class="nav-link">Команда</a></li>
+                <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <!-- Десктопная кнопка -->
+        <button class="btn btn-header">Вызвать мастера</button>
+        
+        <!-- Гамбургер-кнопка (видна только на мобильном) -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Мобильное меню (ОТДЕЛЬНО, после </header>) -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu">
+        <!-- Кнопка закрытия (крестик) -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть">×</button>
+        
+        <!-- Мобильная навигация -->
+        <nav class="mobile-nav">
+            <a href="#main" class="mobile-nav-link">Главная</a>
+            <a href="#about" class="mobile-nav-link">О нас</a>
+            <a href="#services" class="mobile-nav-link">Услуги</a>
+            <a href="#team" class="mobile-nav-link">Команда</a>
+            <a href="#reviews" class="mobile-nav-link">Отзывы</a>
+            <a href="#contacts" class="mobile-nav-link">Контакты</a>
+        </nav>
+        
+        <!-- Подвал мобильного меню -->
+        <div class="mobile-menu-footer">
+            <p class="mobile-menu-text">Переходите в приложение<br>Telegram для заказа мастера</p>
+            <button class="btn btn-primary mobile-menu-btn">Вызвать мастера</button>
+        </div>
+    </div>
+</div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="main">
@@ -75,7 +109,7 @@
             <h1 class="hero-title">
                 РЕШАЕМ ПРОБЛЕМЫ ПОД КЛЮЧ
             </h1>
-            <p class="hero-subtitle">Без пыли, нервов и посторонних в доме.</p>
+            <p class="hero-subtitle">Без пыли, нервов и посторонних в доме.</p>
         </div>
 
         <div class="hero-right">
@@ -85,9 +119,7 @@
 
             <div class="hero-text-block">
                 <p class="hero-description">
-                    Ваш дом и бизнес заслуживают настоящего мужского подхода. 
-                    Помогаем женщинам, мужчинам и компаниям забыть о бытовых 
-                    и технических вопросах. Просто напишите в Telegram.
+                    Ваш дом и бизнес заслуживают настоящего мужского подхода. Помогаем женщинам, мужчинам и компаниям забыть о бытовых и технических вопросах. Просто напишите в Telegram.
                 </p>
             </div>
 
@@ -240,7 +272,7 @@
                     <div class="service-content">
                         <h3 class="service-title">Видеонаблюдение</h3>
                         <p class="service-description">Камеры, регистраторы, монтаж, настройка.<br>
-Чтобы вы видели, что происходит дома или в офисе. Удаленно, с телефона, без сложностей.</p>
+Чтобы вы видели, что происходит дома или в офисе. Удалённо, с телефона, без сложностей.</p>
                     </div>
                 </div>
 
@@ -679,6 +711,93 @@ document.addEventListener('DOMContentLoaded', function() {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
+    });
+});
+</script>
+
+<script>
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    // Открыть меню
+    function openMenu() {
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuOverlay.style.display = 'block';
+        }
+        document.body.classList.add('menu-open');
+    }
+    
+    // Закрыть меню
+    function closeMenu() {
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            setTimeout(() => {
+                if (!mobileMenuOverlay.classList.contains('active')) {
+                    mobileMenuOverlay.style.display = 'none';
+                }
+            }, 400);
+        }
+        document.body.classList.remove('menu-open');
+    }
+    
+    // Открытие по клику на гамбургер
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openMenu();
+        });
+    }
+    
+    // Закрытие по клику на крестик
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+    
+    // Закрытие при клике на ссылку
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 400);
+            }
+        });
+    });
+    
+    // Закрытие при клике на фон
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
+    }
+    
+    // Закрытие при ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+    
+    // Закрытие при resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 480) {
+            closeMenu();
+        }
     });
 });
 </script>
