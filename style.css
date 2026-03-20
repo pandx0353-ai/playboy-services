@@ -1436,16 +1436,16 @@ section {
 /* Найдите .mobile-menu и замените на: */
 .mobile-menu {
         height: 100%;
-        padding: 70px 24px 40px;  /* БЫЛО 120px → СТАЛО 70px */
+        padding: 50px 24px 40px !important;  /* БЫЛО 80px → СТАЛО 50px */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start !important;  /* Важно! Прижимаем контент вверх */
     }
     
     /* Также можно увеличить отступ у крестика */
 .mobile-menu-close {
         position: absolute;
-        top: 16px;  /* БЫЛО 30px → СТАЛО 16px */
+        top: 12px !important;  /* БЫЛО 20px → СТАЛО 12px */
         right: 20px;
         background: none;
         border: none;
@@ -1456,11 +1456,11 @@ section {
         height: 44px;
     }
     
-    .mobile-nav {
+   .mobile-nav {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        margin-top: 30px;  /* БЫЛО 60px → СТАЛО 30px */
+        margin-top: 20px !important;  /* БЫЛО 40px → СТАЛО 20px */
     }
 
     .mobile-nav-link {
@@ -1474,14 +1474,15 @@ section {
     
     .mobile-menu-footer {
         text-align: center;
-        padding-top: 32px;
+        padding-top: 20px !important;  /* БЫЛО 32px → СТАЛО 20px */
         border-top: 1px solid #E0E0E0;
+        margin-top: auto;  /* Прижимаем к низу, но с меньшим отступом */
     }
     
     .mobile-menu-text {
         font-size: 14px;
         color: #8C969C;
-        margin-bottom: 24px;
+        margin-bottom: 16px;  /* БЫЛО 24px → СТАЛО 16px */
     }
     
     .mobile-menu-btn {
@@ -1490,7 +1491,7 @@ section {
         font-size: 16px;
     }
     
-        body.menu-open {
+    body.menu-open {
         overflow: hidden;
     }
 }
