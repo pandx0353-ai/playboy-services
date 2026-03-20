@@ -1436,33 +1436,32 @@ section {
 /* Найдите .mobile-menu и замените на: */
 .mobile-menu {
     height: 100%;
-    padding: 80px 24px 40px;
+    padding: 120px 24px 40px;  /* УВЕЛИЧЕНО с 80px до 120px - больше места сверху */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F0F8FF 100%); /* Градиентный фон */
 }
     
-    .mobile-menu-close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 36px;
-        color: #2C2C2C;
-        cursor: pointer;
-        width: 44px;
-        height: 44px;
-    }
+    /* Также можно увеличить отступ у крестика */
+.mobile-menu-close {
+    position: absolute;
+    top: 30px;  /* УВЕЛИЧЕНО с 20px до 30px */
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 36px;
+    color: #2C2C2C;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+}
     
     .mobile-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 40px;
-    }
-    
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 60px;  /* УВЕЛИЧЕНО с 40px до 60px - больше отступ от крестика */
+}
     .mobile-nav-link {
         font-size: 24px;
         font-weight: 500;
